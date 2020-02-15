@@ -1,5 +1,8 @@
 from flask import Flask, render_template
+
+from flask import Flask
 from flask_pymongo import PyMongo
+
 import scrape_mars
 
 app = Flask(__name__)
