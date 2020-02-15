@@ -34,12 +34,12 @@ def mars_news(browser):
     browser.is_element_present_by_css("ul.item_list li.slide", wait_time=0.5)
 
     html = browser.html
-    news_soup = BeautifulSoup(html, "html.parser")
+    news_soup_parsed = BeautifulSoup(html, "html.parser")
 
     try:
-        slide_elem = news_soup.select_one("ul.item_list li.slide")
-        news_title = slide_elem.find("div", class_="content_title").get_text()
-        news_p = slide_elem.find(
+        slide_elem_news = news_soup_parsed.select_one("ul.item_list li.slide")
+        news_title = slide_elem_news.find("div", class_="content_title").get_text()
+        news_p = slide_elem_news.find(
             "div", class_="article_teaser_body").get_text()
 
     except AttributeError:
@@ -108,21 +108,7 @@ def hemispheres(browser):
     return hemisphere_image_urls
 
 
-def twitter_weather(browser):
-    url = "https://twitter.com/marswxreport?lang=en"
-    browser.visit(url)
 
-    html = browser.html
-    weather_soup = BeautifulSoup(html, "html.parser")
-
-    # First, find a tweet with the data-name `Mars Weather`
-    tweet_attrs = {"class": "tweet", "data-name": "Mars Weather"}
-    mars_weather_tweet = weather_soup.find("div", attrs=tweet_attrs)
-
-    # Next, search within the tweet for the p tag containing the tweet text
-    mars_weather = mars_weather_tweet.find("p", "tweet-text").get_text()
-
-    return mars_weather
 
 
 def scrape_hemisphere(html_text):
