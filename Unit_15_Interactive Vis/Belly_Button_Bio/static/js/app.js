@@ -30,7 +30,7 @@ function buildCharts(sample) {
       hovermode: "closest",
       xaxis: { title: "OTU ID" }
     };
-    var bubbleData = [
+    var bubData = [
       {
         x: otu_ids,
         y: sample_values,
@@ -44,7 +44,7 @@ function buildCharts(sample) {
       }
     ];
 
-    Plotly.plot("bubble", bubbleData, bubbleLayout);
+    Plotly.plot("bubble", bubData, bubbleLayout);
 
     // Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
@@ -81,9 +81,9 @@ function init() {
     });
 
     // Use the first sample from the list to build the initial plots
-    const firstSample = sampleNames[0];
-    buildCharts(firstSample);
-    buildMetadata(firstSample);
+    const first = sampleNames[0];
+    buildCharts(first);
+    buildMetadata(first);
   });
 }
 

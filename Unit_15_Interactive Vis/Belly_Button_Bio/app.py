@@ -32,13 +32,13 @@ Samples = Base.classes.samples
 
 @app.route("/")
 def index():
-    """Return the homepage."""
+    """Landing homepage."""
     return render_template("index.html")
 
 
 @app.route("/names")
 def names():
-    """Return a list of sample names."""
+    """Render samples."""
 
     # Use Pandas to perform the sql query
     stmt = db.session.query(Samples).statement
@@ -55,7 +55,7 @@ def sample_metadata(sample):
         Samples_Metadata.sample,
         Samples_Metadata.ETHNICITY,
         Samples_Metadata.GENDER,
-        Samples_Metadata.AGE,
+       
         Samples_Metadata.LOCATION,
         Samples_Metadata.BBTYPE,
         Samples_Metadata.WFREQ,
@@ -69,7 +69,7 @@ def sample_metadata(sample):
         sample_metadata["sample"] = result[0]
         sample_metadata["ETHNICITY"] = result[1]
         sample_metadata["GENDER"] = result[2]
-        sample_metadata["AGE"] = result[3]
+        
         sample_metadata["LOCATION"] = result[4]
         sample_metadata["BBTYPE"] = result[5]
         sample_metadata["WFREQ"] = result[6]
