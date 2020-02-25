@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Stock Picker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="shortcut icon" type="image/jfif" href="static/data/aarows.jpg" />
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+                "symbols": [{
+                    "proName": "OANDA:SPX500USD",
+                    "title": "S&P 500"
+                }, {
+                    "proName": "OANDA:NAS100USD",
+                    "title": "Nasdaq 100"
+                }, {
+                    "proName": "FX_IDC:EURUSD",
+                    "title": "EUR/USD"
+                }, {
+                    "proName": "BITSTAMP:BTCUSD",
+                    "title": "BTC/USD"
+                }, {
+                    "proName": "BITSTAMP:ETHUSD",
+                    "title": "ETH/USD"
+                }],
+                "colorTheme": "light",
+                "isTransparent": false,
+                "displayMode": "adaptive",
+                "locale": "en"
+            }
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index">Get Rich Picking Stocks</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="science">The Science</a></li>
+                    <li><a href="test">Research</a></li>
+                    <li><a href="table2">Data</a></li>
+                    <li><a href="about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <body>
+
+            <div class="container">
+                <h2>About The Machine Learning</h2>
+                <p></p>
+                <p>Click on the images to enlarge them.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="static/Images/Fig2_model_comp.png" target="_blank">
+                                <img src="static/Images/Fig2_model_comp.png" alt="Lights" style="width:100%">
+                                <div class="caption">
+                                    <p>A comparison of MAE of each machine learning model compared to a baseline guess, which is the median target value in the dataset. In this case, the baseline guess had a lower MAE than each of the machine learning models
+                                        and demonstrates that the machine learning models had no discernable performance above random chance.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="static/Images/Fig3_den_vs_price_test_and_pred.png" target="_blank">
+                                <img src="static/Images/Fig3_den_vs_price_test_and_pred.png" alt="Nature" style="width:100%">
+                                <div class="caption">
+                                    <p>A visual depiction of the density of 2019 price performance as a binary classification, 0 for negative price change and 1 for positive price change. The predictions are skewed to the left with the majority of the density
+                                        focused toward a classification of 1. This demonstrates the K-nearest neighbor bias to positive price performance, possibly caused by the actual extreme positive outliers in the data set that were not properly assimilated
+                                        into the model training.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="static/Images/Fig4_Dist_of_resd.png" target="_blank">
+                                <img src="static/Images/Fig4_Dist_of_resd.png" alt="Fjords" style="width:100%">
+                                <div class="caption">
+                                    <p>A histogram depicting the distribution of error residuals in the binary classification of price performance. There is a higher prevalence of residuals to the left of 0 due to the bias of the K-nearest neighbor model
+                                        to predict positive price performance across the entirety of the data set..</p>
+                                </div>
+                            </a>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="static/Images/Fig6_den_vs_price-outliers.png" target="_blank">
+                                <img src="static/Images/Fig6_den_vs_price-outliers.png" alt="Fjords" style="width:100%">
+                                <div class="caption">
+                                    <p>A Seaborn line graph exploring the density of sector price performance with outliers removed. Energy and Communication Services were the most normal at the end of 2019, with technology and healthcare possessing the
+                                        greatest kurtosis relative to the other sectors.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="static/Images/image7.png" target="_blank">
+                                <img src="static/Images/image7.png" alt="Fjords" style="width:100%">
+                                <div class="caption">
+                                    <p>A visual depiction of the density of 2019 price performance across the data set comparing K-nearest neighbor predictions and actual annual price change. As can be seen in the graph, K-nearest neighbor inadequately captures
+                                        the significant tail risk (positive and negative) that actually occurred across the technology securities analyzed.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="static/Images/image (5).png" target="_blank">
+                                <img src="static/Images/image (5).png" alt="Fjords" style="width:100%">
+                                <div class="caption">
+                                    <p>A histogram depicting the extreme left-skewedness in the distribution of residuals between the predicted price performance and the actual annual price change. This is also captured in the large tail risk present in
+                                        the prediction vs. actual line graph for price performance..</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+        </body>
+        <footer class="footer">
+            <footer class="text-center"></footer>
+            <h6 align="center">The Information Contained Here Does Not Consitute Financial Advice</h6>
+            <h6 align="center">Past Performance Does Not Guarantee Future Results</h6>
+            <h6 align="center">SMU Data Science Bootcamp</h6>
+        </footer>
